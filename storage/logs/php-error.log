@@ -1,0 +1,93 @@
+[28-May-2025 14:18:11 America/Bogota] PHP Fatal error:  Uncaught Error: Typed static property App\Controllers\BaseController::$request must not be accessed before initialization in C:\wamp64\www\MarcCaloriesBackend\app\Controllers\UsuarioController.php:9
+Stack trace:
+#0 [internal function]: App\Controllers\UsuarioController::save(Object(App\Config\Http\Request), Object(App\Config\Http\Response))
+#1 C:\wamp64\www\MarcCaloriesBackend\app\Config\Http\Router.php(55): call_user_func(Array, Object(App\Config\Http\Request), Object(App\Config\Http\Response))
+#2 C:\wamp64\www\MarcCaloriesBackend\app\Config\App.php(28): App\Config\Http\Router->resolver()
+#3 C:\wamp64\www\MarcCaloriesBackend\index.php(7): App\Config\App::initConfig()
+#4 {main}
+  thrown in C:\wamp64\www\MarcCaloriesBackend\app\Controllers\UsuarioController.php on line 9
+[28-May-2025 14:37:08 America/Bogota] PHP Fatal error:  Uncaught TypeError: App\Config\Http\Router::registrar(): Argument #3 ($callback) must be of type callable, array given, called in C:\wamp64\www\MarcCaloriesBackend\app\Routes\UsuarioRoute.php on line 13 and defined in C:\wamp64\www\MarcCaloriesBackend\app\Config\Http\Router.php:42
+Stack trace:
+#0 C:\wamp64\www\MarcCaloriesBackend\app\Routes\UsuarioRoute.php(13): App\Config\Http\Router->registrar('usuario/save', 'POST', Array)
+#1 C:\wamp64\www\MarcCaloriesBackend\app\Config\Http\Router.php(37): App\Routes\UsuarioRoute::registrar(Object(App\Config\Http\Router))
+#2 C:\wamp64\www\MarcCaloriesBackend\app\Config\Http\Router.php(16): App\Config\Http\Router->loadSubrutas()
+#3 C:\wamp64\www\MarcCaloriesBackend\app\Config\App.php(25): App\Config\Http\Router->__construct('usuario/save', 'POST')
+#4 C:\wamp64\www\MarcCaloriesBackend\index.php(7): App\Config\App::initConfig()
+#5 {main}
+  thrown in C:\wamp64\www\MarcCaloriesBackend\app\Config\Http\Router.php on line 42
+[28-May-2025 14:42:57 America/Bogota] PHP Fatal error:  Uncaught TypeError: App\Config\Http\Router::registrar(): Argument #3 ($callback) must be of type callable, array given, called in C:\wamp64\www\MarcCaloriesBackend\app\Routes\UsuarioRoute.php on line 13 and defined in C:\wamp64\www\MarcCaloriesBackend\app\Config\Http\Router.php:42
+Stack trace:
+#0 C:\wamp64\www\MarcCaloriesBackend\app\Routes\UsuarioRoute.php(13): App\Config\Http\Router->registrar('usuario/save', 'POST', Array)
+#1 C:\wamp64\www\MarcCaloriesBackend\app\Config\Http\Router.php(37): App\Routes\UsuarioRoute::registrar(Object(App\Config\Http\Router))
+#2 C:\wamp64\www\MarcCaloriesBackend\app\Config\Http\Router.php(16): App\Config\Http\Router->loadSubrutas()
+#3 C:\wamp64\www\MarcCaloriesBackend\app\Config\App.php(25): App\Config\Http\Router->__construct('usuario/save', 'POST')
+#4 C:\wamp64\www\MarcCaloriesBackend\index.php(7): App\Config\App::initConfig()
+#5 {main}
+  thrown in C:\wamp64\www\MarcCaloriesBackend\app\Config\Http\Router.php on line 42
+[28-May-2025 14:45:43 America/Bogota] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\UsuarioController::save(), 0 passed and exactly 1 expected in C:\wamp64\www\MarcCaloriesBackend\app\Controllers\UsuarioController.php:7
+Stack trace:
+#0 [internal function]: App\Controllers\UsuarioController->save()
+#1 C:\wamp64\www\MarcCaloriesBackend\app\Config\Http\Router.php(74): call_user_func(Array)
+#2 C:\wamp64\www\MarcCaloriesBackend\app\Config\App.php(28): App\Config\Http\Router->resolver()
+#3 C:\wamp64\www\MarcCaloriesBackend\index.php(7): App\Config\App::initConfig()
+#4 {main}
+  thrown in C:\wamp64\www\MarcCaloriesBackend\app\Controllers\UsuarioController.php on line 7
+[28-May-2025 14:46:29 America/Bogota] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\UsuarioController::save(), 0 passed and exactly 2 expected in C:\wamp64\www\MarcCaloriesBackend\app\Controllers\UsuarioController.php:7
+Stack trace:
+#0 [internal function]: App\Controllers\UsuarioController->save()
+#1 C:\wamp64\www\MarcCaloriesBackend\app\Config\Http\Router.php(74): call_user_func(Array)
+#2 C:\wamp64\www\MarcCaloriesBackend\app\Config\App.php(28): App\Config\Http\Router->resolver()
+#3 C:\wamp64\www\MarcCaloriesBackend\index.php(7): App\Config\App::initConfig()
+#4 {main}
+  thrown in C:\wamp64\www\MarcCaloriesBackend\app\Controllers\UsuarioController.php on line 7
+[28-May-2025 14:47:31 America/Bogota] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\UsuarioController::save(), 0 passed and exactly 1 expected in C:\wamp64\www\MarcCaloriesBackend\app\Controllers\UsuarioController.php:9
+Stack trace:
+#0 [internal function]: App\Controllers\UsuarioController->save()
+#1 C:\wamp64\www\MarcCaloriesBackend\app\Config\Http\Router.php(74): call_user_func(Array)
+#2 C:\wamp64\www\MarcCaloriesBackend\app\Config\App.php(28): App\Config\Http\Router->resolver()
+#3 C:\wamp64\www\MarcCaloriesBackend\index.php(7): App\Config\App::initConfig()
+#4 {main}
+  thrown in C:\wamp64\www\MarcCaloriesBackend\app\Controllers\UsuarioController.php on line 9
+[28-May-2025 14:48:32 America/Bogota] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\UsuarioController::save(), 0 passed and exactly 2 expected in C:\wamp64\www\MarcCaloriesBackend\app\Controllers\UsuarioController.php:9
+Stack trace:
+#0 [internal function]: App\Controllers\UsuarioController->save()
+#1 C:\wamp64\www\MarcCaloriesBackend\app\Config\Http\Router.php(74): call_user_func(Array)
+#2 C:\wamp64\www\MarcCaloriesBackend\app\Config\App.php(28): App\Config\Http\Router->resolver()
+#3 C:\wamp64\www\MarcCaloriesBackend\index.php(7): App\Config\App::initConfig()
+#4 {main}
+  thrown in C:\wamp64\www\MarcCaloriesBackend\app\Controllers\UsuarioController.php on line 9
+[28-May-2025 15:01:56 America/Bogota] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\UsuarioController::save(), 0 passed in C:\wamp64\www\MarcCaloriesBackend\app\Config\Http\Router.php on line 71 and exactly 1 expected in C:\wamp64\www\MarcCaloriesBackend\app\Controllers\UsuarioController.php:9
+Stack trace:
+#0 C:\wamp64\www\MarcCaloriesBackend\app\Config\Http\Router.php(71): App\Controllers\UsuarioController->save()
+#1 C:\wamp64\www\MarcCaloriesBackend\app\Config\App.php(28): App\Config\Http\Router->resolver()
+#2 C:\wamp64\www\MarcCaloriesBackend\index.php(7): App\Config\App::initConfig()
+#3 {main}
+  thrown in C:\wamp64\www\MarcCaloriesBackend\app\Controllers\UsuarioController.php on line 9
+[28-May-2025 15:08:15 America/Bogota] PHP Fatal error:  Uncaught TypeError: App\Controllers\UsuarioController::save(): Argument #1 ($request) must be of type App\Config\Http\Response, App\Config\Http\Request given, called in C:\wamp64\www\MarcCaloriesBackend\app\Config\Http\Router.php on line 70 and defined in C:\wamp64\www\MarcCaloriesBackend\app\Controllers\UsuarioController.php:9
+Stack trace:
+#0 C:\wamp64\www\MarcCaloriesBackend\app\Config\Http\Router.php(70): App\Controllers\UsuarioController->save(Object(App\Config\Http\Request))
+#1 C:\wamp64\www\MarcCaloriesBackend\app\Config\App.php(28): App\Config\Http\Router->resolver()
+#2 C:\wamp64\www\MarcCaloriesBackend\index.php(7): App\Config\App::initConfig()
+#3 {main}
+  thrown in C:\wamp64\www\MarcCaloriesBackend\app\Controllers\UsuarioController.php on line 9
+[28-May-2025 15:08:54 America/Bogota] PHP Fatal error:  Uncaught TypeError: App\Controllers\UsuarioController::save(): Argument #1 ($request) must be of type App\Config\Http\Response, App\Config\Http\Request given, called in C:\wamp64\www\MarcCaloriesBackend\app\Config\Http\Router.php on line 70 and defined in C:\wamp64\www\MarcCaloriesBackend\app\Controllers\UsuarioController.php:9
+Stack trace:
+#0 C:\wamp64\www\MarcCaloriesBackend\app\Config\Http\Router.php(70): App\Controllers\UsuarioController->save(Object(App\Config\Http\Request))
+#1 C:\wamp64\www\MarcCaloriesBackend\app\Config\App.php(28): App\Config\Http\Router->resolver()
+#2 C:\wamp64\www\MarcCaloriesBackend\index.php(7): App\Config\App::initConfig()
+#3 {main}
+  thrown in C:\wamp64\www\MarcCaloriesBackend\app\Controllers\UsuarioController.php on line 9
+[28-May-2025 15:11:27 America/Bogota] PHP Fatal error:  Uncaught TypeError: App\Controllers\UsuarioController::save(): Argument #1 ($request) must be of type App\Config\Http\Response, App\Config\Http\Request given, called in C:\wamp64\www\MarcCaloriesBackend\app\Config\Http\Router.php on line 70 and defined in C:\wamp64\www\MarcCaloriesBackend\app\Controllers\UsuarioController.php:9
+Stack trace:
+#0 C:\wamp64\www\MarcCaloriesBackend\app\Config\Http\Router.php(70): App\Controllers\UsuarioController->save(Object(App\Config\Http\Request))
+#1 C:\wamp64\www\MarcCaloriesBackend\app\Config\App.php(28): App\Config\Http\Router->resolver()
+#2 C:\wamp64\www\MarcCaloriesBackend\index.php(7): App\Config\App::initConfig()
+#3 {main}
+  thrown in C:\wamp64\www\MarcCaloriesBackend\app\Controllers\UsuarioController.php on line 9
+[28-May-2025 15:12:46 America/Bogota] PHP Fatal error:  Uncaught TypeError: App\Controllers\UsuarioController::save(): Argument #1 ($request) must be of type App\Config\Http\Response, App\Config\Http\Request given, called in C:\wamp64\www\MarcCaloriesBackend\app\Config\Http\Router.php on line 70 and defined in C:\wamp64\www\MarcCaloriesBackend\app\Controllers\UsuarioController.php:9
+Stack trace:
+#0 C:\wamp64\www\MarcCaloriesBackend\app\Config\Http\Router.php(70): App\Controllers\UsuarioController->save(Object(App\Config\Http\Request))
+#1 C:\wamp64\www\MarcCaloriesBackend\app\Config\App.php(28): App\Config\Http\Router->resolver()
+#2 C:\wamp64\www\MarcCaloriesBackend\index.php(7): App\Config\App::initConfig()
+#3 {main}
+  thrown in C:\wamp64\www\MarcCaloriesBackend\app\Controllers\UsuarioController.php on line 9

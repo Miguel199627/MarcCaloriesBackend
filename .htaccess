@@ -1,0 +1,14 @@
+RewriteEngine On
+Options -Indexes
+
+# Prevenir acceso al archivo .htaccess
+<files .htaccess>
+  Require all denied
+</files>
+
+# Solo redirige si NO es un archivo o directorio real
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Reescribe rutas que empiecen por /api/
+RewriteRule ^api/(.*)$ index.php?route=api/$1 [QSA,L]
