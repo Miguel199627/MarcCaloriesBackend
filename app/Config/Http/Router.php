@@ -57,14 +57,15 @@ class Router
         try {
             $request = new Request();
             $response = new Response();
+            $validation = new Validation();
             $callback = $this->rutasRegistradas[$clave];
 
             if (is_array($callback) && is_string($callback[0])) {
                 [$controllerClass, $method] = $callback;
-                $controller = new $controllerClass($request, $response);
+                $controller = new $controllerClass($request, $response, $validation);
 
                 $params = $this->getParamsMethod($controller, $method);
-                $args = $this->prepareArguments($params, $request, $response);
+                $args = $this->prepareArguments($params, $request, $response, $validation);
 
                 call_user_func_array([$controller, $method], $args);
             }
@@ -83,11 +84,11 @@ class Router
     }
 
     // [Mcerquera 20250528] Prepara el array de argumentos que se pasarán al método controlador, Valida que el tipo y cantidad sean correctos (0, 1 o 2 parámetros)
-    private function prepareArguments(array $params, Request $request, Response $response): array
+    private function prepareArguments(array $params, Request $request, Response $response, Validation $validation): array
     {
         $args = [];
 
-        if (count($params) > 2) throw new \ArgumentCountError("El método tiene más de 2 parámetros, no soportado");
+        if (count($params) > 3) throw new \ArgumentCountError("El método tiene más de 3 parámetros, no soportado");
 
         foreach ($params as $param) {
             $tipo = $param->getType()?->getName() ?? '';
@@ -96,6 +97,8 @@ class Router
                 $args[] = $request;
             } elseif ($tipo === Response::class) {
                 $args[] = $response;
+            } elseif ($tipo === Validation::class) {
+                $args[] = $validation;
             } else {
                 throw new \TypeError("Tipo de parámetro no soportado en el controlador: {$tipo}");
             }

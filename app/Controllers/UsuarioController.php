@@ -2,12 +2,17 @@
 
 namespace App\Controllers;
 
-use App\Config\Http\{Request, Response};
+use App\Config\Http\Request;
 
 class UsuarioController extends BaseController
 {
-    public function save()
+    public function save(Request $request)
     {
-        print_r($this->request);
+        $datos = $this->validation->validate($request, [
+            "usuario_perfil" => "required|numeric",
+            "usuario_email" => "required|valid_email"
+        ]);
+
+        $this->response::response(200, "Proceso Exítoso", $datos);
     }
 }

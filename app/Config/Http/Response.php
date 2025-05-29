@@ -44,7 +44,7 @@ class Response
         http_response_code($codigoHttp);
 
         if (!empty($message)) $response['message'] = $message;
-        if (!empty($data) && $codigoHttp === 200) $response['data'] = $data;
+        if (!empty($data)) $response['data'] = $data;
 
         // [Mcerquera - 20250527] Devolver la respuesta en formato JSON
         echo json_encode($response);

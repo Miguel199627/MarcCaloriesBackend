@@ -1,0 +1,15 @@
+#-------------------------
+# Manejo de archivos basura específicos
+#-------------------------
+
+#-------------------------
+# Archivos Temporales
+#-------------------------
+storage/logs/*
+
+php_errors.log
+
+#-------------------------
+# Composer
+#-------------------------
+vendor/
