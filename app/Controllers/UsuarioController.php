@@ -8,7 +8,7 @@ class UsuarioController extends BaseController
 {
     public function save(Request $request)
     {
-        $datos = $this->validation->validate($request, [
+        $datos = $this->validation::validate($request, [
             "usuario_perfil" => "required|numeric",
             "usuario_email" => "required|valid_email"
         ]);
