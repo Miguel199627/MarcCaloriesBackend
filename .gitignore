@@ -5,7 +5,7 @@
 #-------------------------
 # Archivos Temporales
 #-------------------------
-storage/logs/*
+# storage/logs/*
 
 php_errors.log
 
