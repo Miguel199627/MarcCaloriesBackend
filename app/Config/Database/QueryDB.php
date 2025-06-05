@@ -1,9 +1,8 @@
 <?php
 
-namespace Config\Database;
+namespace App\Config\Database;
 
-use Config\Database\ConfigDB;
-use Config\ResponseHttp;
+use App\Config\Http\Response;
 use PDOException;
 
 class QueryDB
@@ -22,7 +21,7 @@ class QueryDB
             $stmt = $this->con->query("SELECT * FROM `$this->table`");
             return $stmt->fetchAll();
         } catch (\PDOException $e) {
-            ResponseHttp::jsonResponse(500, $e->getMessage());
+            Response::response(500, $e->getMessage());
         }
     }
 }

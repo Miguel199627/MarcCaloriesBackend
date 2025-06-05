@@ -2,7 +2,7 @@
 
 namespace App\Config;
 
-use App\Config\Http\{Header, Response, Router};
+use App\Config\Http\{Header, Cors, Response, Router};
 
 class App
 {
@@ -12,6 +12,7 @@ class App
     {
         ErrorLog::activateErrorLog();
         Header::activeHeaders();
+        Cors::activeCors();
 
         $route = $_GET['route'] ?? '';
         $method = $_SERVER['REQUEST_METHOD'];
