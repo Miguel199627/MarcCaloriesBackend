@@ -2,6 +2,8 @@
 
 namespace App\Config\Http;
 
+use App\Helpers\Env;
+
 class Cors
 {
     private static $cors = [
@@ -11,7 +13,7 @@ class Cors
 
     public static function activeCors()
     {
-        switch (getEnv('APP_ENV')) {
+        switch (Env::getEnv('APP_ENV')) {
             case 'PROD':
                 self::$cors["Access-Control-Allow-Origin"] = "";
                 self::$cors["Access-Control-Allow-Methods"] = "";
@@ -25,7 +27,7 @@ class Cors
                 self::$cors["Access-Control-Allow-Methods"] = "*";
                 break;
             default:
-                Response::response(500, 'Entorno no configurado o soportado por el api');
+                Response::response(500, 'CORS: Entorno no configurado o soportado por el api');
                 break;
         }
 

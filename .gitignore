@@ -1,6 +1,7 @@
 #-------------------------
 # Manejo de archivos basura específicos
 #-------------------------
+.env
 
 #-------------------------
 # Archivos Temporales
