@@ -10,6 +10,7 @@ class PerfilRoute
 
     public static function registrar($router)
     {
+        $router->registrar(self::$base . "/list", 'GET', [PerfilController::class, 'list']);
         $router->registrar(self::$base . "/save", 'POST', [PerfilController::class, 'save']);
     }
 }

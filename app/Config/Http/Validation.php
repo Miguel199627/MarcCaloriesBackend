@@ -82,9 +82,9 @@ class Validation
     private function initAvailableRules()
     {
         self::$availableRules["required"]["condition"] = fn($values) => is_null($values["value"]) || $values["value"] == '';
-        self::$availableRules["valid_email"]["condition"] = fn($values) => !filter_var($values["value"], FILTER_VALIDATE_EMAIL);
+        self::$availableRules["valid_email"]["condition"] = fn($values) => !is_null($values["value"]) && !filter_var($values["value"], FILTER_VALIDATE_EMAIL);
         self::$availableRules["numeric"]["condition"] = fn($values) => !is_null($values["value"]) && !is_numeric($values["value"]);
-        self::$availableRules["min"]["condition"] = fn($values) => strlen($values["value"]) < (int)$values["param"];
-        self::$availableRules["max"]["condition"] = fn($values) => strlen($values["value"]) > (int)$values["param"];
+        self::$availableRules["min"]["condition"] = fn($values) => !is_null($values["value"]) && strlen($values["value"]) < (int)$values["param"];
+        self::$availableRules["max"]["condition"] = fn($values) => !is_null($values["value"]) && strlen($values["value"]) > (int)$values["param"];
     }
 }

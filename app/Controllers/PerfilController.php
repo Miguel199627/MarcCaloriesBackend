@@ -6,6 +6,14 @@ use App\Models\PerfilModel;
 
 class PerfilController extends BaseController
 {
+    public function list()
+    {
+        $model = new PerfilModel();
+        $result = $model->all();
+
+        $this->response::response(200, null, $result);
+    }
+
     public function save()
     {
         $datos = $this->validation::validate($this->request, [
