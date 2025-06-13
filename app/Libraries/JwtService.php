@@ -1,8 +1,8 @@
 <?php
 
-namespace Config;
+namespace App\Libraries;
 
-use Utils\Env;
+use App\Helpers\Env;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 

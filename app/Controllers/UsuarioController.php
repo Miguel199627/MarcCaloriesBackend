@@ -3,8 +3,8 @@
 namespace App\Controllers;
 
 use App\Config\Http\Request;
+use App\Libraries\Auth;
 use App\Helpers\Hash;
-use App\Libraries\Menu;
 use App\Models\UsuarioModel;
 
 class UsuarioController extends BaseController
@@ -16,21 +16,13 @@ class UsuarioController extends BaseController
             "usuario_password" => "required|min:10|max:100"
         ]);
 
-        $model = new UsuarioModel();
-        $query = $model->where("usuario_email = ?", [$datos["usuario_email"]])
-            ->where("usuario_estado = 1");
+        try {
+            $result = Auth::authentication($datos["usuario_email"], $datos["usuario_password"]);
+        } catch (\Throwable $th) {
+            $this->response::response(400, $th->getMessage());
+        }
 
-        $user = $query->first();
-
-        if (!$user) $this->response::response(400, "El Usuario Se Encuentra Inactivo");
-        if (!Hash::verifyHash($datos["usuario_password"], $user["usuario_password"])) $this->response::response(400, "La Contraseña Del Usuario Es Incorrecta");
-
-        $menu = Menu::getMenu($datos["usuario_email"]);
-
-        $this->response::response(200, null, [
-            "usuario" => $user,
-            "menu" => $menu
-        ]);
+        $this->response::response(200, null, $result);
     }
 
     public function save(Request $request)

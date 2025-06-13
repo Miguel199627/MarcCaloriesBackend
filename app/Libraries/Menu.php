@@ -7,13 +7,13 @@ use App\Models\PerfilProgramaModel;
 
 class Menu
 {
-    public static function getMenu(string $usuario_email)
+    public static function getMenu(string $usuarioEmail)
     {
         $model = new PerfilProgramaModel();
         $query = $model->select("menu.*")
             ->join("menu", "menu_codigo = perfprog_menu")
             ->join("usuario", "usuario_perfil = perfprog_perfil")
-            ->where("usuario_email = ?", [$usuario_email])
+            ->where("usuario_email = ?", [$usuarioEmail])
             ->where("perfprog_estado = ?", [1]);
 
         $programas = $query->all();
@@ -44,6 +44,9 @@ class Menu
 
         // Ordenar recursivamente por 'menu_orden'
         self::ordenarRecursivo($arbol);
+
+        // Optimizar el menu con lo necesario
+        $arbol = self::optimizarMenu($arbol);
 
         return $arbol;
     }
@@ -77,5 +80,29 @@ class Menu
                 self::ordenarRecursivo($nodo['children']);
             }
         }
+    }
+
+    // Función para optimizar el menu
+    private static function optimizarMenu(array $menu)
+    {
+        $resultado = [];
+
+        foreach ($menu as $item) {
+            $tipo = $item['menu_tipomenu'];
+
+            // Campos comunes
+            $nuevo = [
+                "menu_tipomenu" => $tipo,
+                "menu_nombre" => $item['menu_nombre']
+            ];
+
+            // Agregar solo lo necesario según el tipo
+            if ($tipo === 1 || $tipo === 2) $nuevo['children'] = self::optimizarMenu($item['children']);
+            else if ($tipo === 3) $nuevo['menu_ruta'] = $item['menu_ruta'];
+
+            $resultado[] = $nuevo;
+        }
+
+        return $resultado;
     }
 }
