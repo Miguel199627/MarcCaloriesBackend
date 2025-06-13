@@ -11,5 +11,6 @@ class UsuarioRoute
     public static function registrar($router)
     {
         $router->registrar(self::$base . "/save", 'POST', [UsuarioController::class, 'save']);
+        $router->registrar(self::$base . "/login", 'POST', [UsuarioController::class, 'login']);
     }
 }

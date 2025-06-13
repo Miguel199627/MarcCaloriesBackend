@@ -14,9 +14,33 @@ class QueryDB
     protected string $fupdated;
     protected string $status;
 
+    private string $select = '*';
+    private array $joins = [];
+    private array $wheres = [];
+    private array $bindings = [];
+
     public function __construct()
     {
         $this->con = ConfigDB::connectDB();
+    }
+
+    public function select(string $select): self
+    {
+        $this->select = $select;
+        return $this;
+    }
+
+    public function join(string $table, string $on): self
+    {
+        $this->joins[] = "JOIN $table ON $on";
+        return $this;
+    }
+
+    public function where(string $condition, array $bindings = []): self
+    {
+        $this->wheres[] = $condition;
+        $this->bindings = array_merge($this->bindings, $bindings);
+        return $this;
     }
 
     public function all()
@@ -24,8 +48,22 @@ class QueryDB
         try {
             $this->validation();
 
-            $stmt = $this->con->query("SELECT * FROM `$this->table`");
+            $stmt = $this->con->prepare($this->getSQL());
+            $stmt->execute($this->bindings);
             return $stmt->fetchAll();
+        } catch (\TypeError | \PDOException $e) {
+            Response::response(500, $e->getMessage());
+        }
+    }
+
+    public function first()
+    {
+        try {
+            $this->validation();
+
+            $stmt = $this->con->prepare($this->getSQL());
+            $stmt->execute($this->bindings);
+            return $stmt->fetch();
         } catch (\TypeError | \PDOException $e) {
             Response::response(500, $e->getMessage());
         }
@@ -41,6 +79,21 @@ class QueryDB
         } catch (\TypeError | \PDOException $e) {
             Response::response(500, $e->getMessage());
         }
+    }
+
+    private function getSQL(): string
+    {
+        $sql = "SELECT {$this->select} FROM `$this->table` ";
+
+        if (!empty($this->joins)) {
+            $sql .= implode(' ', $this->joins) . ' ';
+        }
+
+        if (!empty($this->wheres)) {
+            $sql .= 'WHERE ' . implode(' AND ', $this->wheres);
+        }
+
+        return $sql;
     }
 
     private function validation()

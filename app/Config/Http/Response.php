@@ -36,9 +36,12 @@ class Response
 
         if (!$response) {
             http_response_code(400);
+
             $response = ArrayList::getSegment(400, 'codigo', self::$httpAnswers);
             $response['message'] = 'Codigo Http no configurado en el api';
-            return $response;
+
+            echo json_encode($response);
+            die();
         }
 
         http_response_code($codigoHttp);
